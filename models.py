@@ -1,5 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy 
-
+from flask_login import UserMixin
 db = SQLAlchemy()
 # Terminal commands 
 # Command D to exit 
@@ -8,7 +8,7 @@ db = SQLAlchemy()
 # table users;
 
 
-class User(db.Model):
+class User(UserMixin, db.Model): # usermixin allows us to modify existing or create new tables in database
     '''User model '''
     __tablename__ = "users"
     id = db.Column(db.Integer, primary_key=True)

@@ -1,4 +1,6 @@
 from flask import Flask, render_template, url_for, request, redirect
+from flask_login import LoginManager, login_user, current_user, login_required, logout_user
+
 from wtform_fields import *
 from models import *
 
@@ -12,6 +14,15 @@ app.config['SQLALCHEMY_DATABASE_URI']='postgres://nutgejunpisnuf:00c0a8255cc7ecb
 # psql (copy postgreslink....)
 
 db = SQLAlchemy(app)
+
+#Configure flask login
+login = LoginManager(app)
+login.init_app(app)
+
+@login.user_loader
+def load_user(id):
+
+    return User.query.get(int(id)) # grabs id as an integer
 
 @app.route("/", methods=['GET', 'POST'])
 def index():
@@ -39,9 +50,26 @@ def login():
 
     # Allow login if validation success 
     if login_form.validate_on_submit():
-        return 'Logged in'
+
+        user_object = User.query.filter_by(username=login_form.username.data).first()
+        login_user(user_object)
+        
+        return redirect(url_for('chat')) # calls the chat function 
 
     return render_template('login.html', form=login_form)
+
+@app.route("/chat", methods=['GET', 'POST'])
+@login_required
+def chat():
+    '''Makes sure that user is logged in before accessing product '''
+    if not current_user.is_authenticated:
+        return 'Please login before accessing chat' 
+    return 'chat with me'  
+
+@app.route('/logout', methods=['GET'])
+def logout():
+    logout_user()
+    return 'logged out using flask-login'
 
 
 if __name__ == '__main__':

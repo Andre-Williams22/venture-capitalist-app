@@ -1,0 +1,24 @@
+{% from 'form_helper.html' import displayField %}
+{% extends 'prelogin-layout.html' %}
+
+{% block title %} Login {% endblock %}
+
+{% block content %}
+    <h2> Login now! </h2>
+        <p> enter your username/password to start VC Pred </p>
+
+    <form action="{{url_for('login')}}" method='POST'>
+    
+            {{ displayField(form.username, 'Username', autocomplete="off", autofocus=true) }}
+            {{ displayField(form.password, 'Password') }}
+
+            <!-- Passes in button from wtforms_fields.py -->
+            <div>
+                {{ form.submit_button }}
+            </div>
+            <!-- Flask wtf forms has a great way to prevent cserf attacks-->
+            {{ form.csrf_token }}
+    
+    </form>
+
+{% endblock %}

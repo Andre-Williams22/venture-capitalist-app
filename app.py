@@ -3,6 +3,11 @@ from time import localtime, strftime
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from flask_socketio import SocketIO, join_room, leave_room, send
+from sklearn.externals import joblib
+import pandas as pd 
+import numpy as np 
+
+
 
 from wtform_fields import *
 from models import *
@@ -79,7 +84,7 @@ def chat():
         flash('Please login', 'danger')
         return redirect(url_for('login'))
 
-    return render_template("chat.html", username=current_user.username, rooms=ROOMS)
+    return render_template("home.html", username=current_user.username, rooms=ROOMS)
 
 @app.route('/logout', methods=['GET'])
 def logout():
@@ -87,31 +92,35 @@ def logout():
     flash('You have logged out successfully', 'success') # message, category/label
     return redirect(url_for('login'))
 
-@socketio.on('message')
-def on_message(data):
-    """Broadcast messages"""
-    print(f"\n\n{data}\n\n")
-    time_stamp = strftime('%b-%d %I:%M%p', localtime())
-    send({"username": data['username'], "msg": data['msg'], "time_stamp": time_stamp}) # room=data['room']
+@app.route('/predict', methods=['GET','POST'])
+def predict():
+    if request.method == 'POST':
+        # implement pickle file here
+        try:
+            # grabs data from form input from the user on home page
+            NewYork = float(request.form['NewYork'])
+            California = float(request.form['California'])
+            Florida = float(request.form['Florida'])
+            RnD_Spend = float(request.form['RnD_Spend'])
+            Admin_Spend = float(request.form['Admin_Spend'])
+            Market_Spend = float(request.form['Market_Spend'])
+            # create a list of these values
+            pred_args = [NewYork,California,Florida,RnD_Spend,Admin_Spend,Market_Spend]
+            # convert list values into an array 
+            pred_args_array = np.array(pred_args)
+            # reshape the array for onehotencoding 
+            new_pred_args_array = pred_args_array.reshape(1, -1)
+            # grab model from jupyter notebook from pkl file
+            mlr_model = open('multiple_linear_model.pkl', 'rb')
+            multiple_linear_regression_model = joblib.load(mlr_model)
+            # make prediction on data from form
+            model_prediction = multiple_linear_regression_model.predict(new_pred_args_array)
+            model_prediction = round(float(model_prediction), 2)
 
-@socketio.on('join')
-def join(data):
-    """User joins a room"""
+        except ValueError: 
+            return "Please Enter Values for the Required fields"
 
-    # username = data["username"]
-    # room = data["room"]
-    join_room(data['room'])
-
-    # Broadcast that new user has joined
-    send({"msg": data['username'] + " has joined the " + data['room'] + " room."}, room=data['room'])
-
-
-@socketio.on('leave')
-def leave(data):
-    """User leaves a room"""
-
-    leave_room(data['room'])
-    send({"msg": data['username'] + " has left the " + data['room'] + ' room.'}, room=data['room'])
+    return render_template('predict.html', prediction=model_prediction)
 
 
 

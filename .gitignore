@@ -1,3 +1,3 @@
 venv
-___pycache__
+___pycache__/
 flask_session

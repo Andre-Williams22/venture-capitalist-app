@@ -1,41 +1,18 @@
-
+{% from 'form_helper.html' import displayField %}
 {% extends "prelogin-layout.html" %}
 
-{% block title %}Register {% endblock title%}
+{% block title %} Register {% endblock title %}
 
 {% block content %}
         <h2>Get started!</h2>
         <p>First time here? Register to start using Rchat</p>
 
-        <form action="{{ url_for('index')}}", method="POST">  
-            <div>
-                {{form.username(placeholder='Username', autocomplete='off', autofocus=true) }}
+        <form action="{{ url_for('index') }}", method="POST">  
 
-                <ul>
-                    {% for error in form.username.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
+            {{ displayField(form.username, 'Username', autocomplete="off", autofocus=true) }}
+            {{ displayField(form.password, 'Password') }}
+            {{ displayField(form.confirm_pswd, 'Retype Password') }}
 
-            </div>
-            <div>
-                {{form.password(placeholder='Password') }}
-                <ul>
-                    {% for error in form.password.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-            </div>
-            <div>
-                {{form.confirm_pswd(placeholder='Retype Password') }}
-
-                <ul>
-                    {% for error in form.confirm_pswd.errors %}
-                        <li>{{ error }}</li>
-                    {% endfor %}
-                </ul>
-
-            </div>
             <!-- Passes in button from wtforms_fields.py -->
             <div>
                 {{ form.submit_button }}

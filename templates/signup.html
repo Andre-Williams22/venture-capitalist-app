@@ -23,7 +23,7 @@
 	    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/one-page-wonder.min.css') }}" />
     </head>
 
-    <body class='body' >
+  <body>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
@@ -78,6 +78,20 @@
 		</div>
 	</div>
 	<!--- Jumbotron Image Slider End -->
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+
+                
+<!-- We will set the class form our custom css file we had created earlier. And we want to see the first item in the list. -->
+                Category: {{ messages[0][0] }}
+                {{ messages[0][1] }}
+
+            {% endif %}
+
+        {% endwith %}
+
 
 
 <center> 

@@ -19,11 +19,11 @@ app = Flask(__name__)
 
 
 # to keep clientside sessions secure 
-app.secret_key =os.environ.get('SECRET')
+app.secret_key = 'secret'#os.environ.get('SECRET')
 app.config['WTF_CSRF_SECRET_KEY'] = "b'f\xfa\x8b{X\x8b\x9eM\x83l\x19\xad\x84\x08\xaa"
 
 # Configure database
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://nutgejunpisnuf:00c0a8255cc7ecbc5ad01197d0933906b367815398be4ce7811ffc46562f79bf@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d9q7ih6h1mkskb'#os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 k = 'postgres://nutgejunpisnuf:00c0a8255cc7ecbc5ad01197d0933906b367815398be4ce7811ffc46562f79bf@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d9q7ih6h1mkskb'
 engine = create_engine(k, pool_size=20, max_overflow=0)
@@ -78,7 +78,7 @@ def signup():
         # before redirecting to login route lets send a message to the user to show their registration is successful
         flash('Registered successfully. Please login.', 'success') # matches a bootstrap class for css
 
-        return redirect(url_for('login'))
+        return redirect(url_for('home'))
 
     return render_template("signup.html", form=reg_form)
 

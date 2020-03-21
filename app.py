@@ -25,6 +25,7 @@ app.config['WTF_CSRF_SECRET_KEY'] = "b'f\xfa\x8b{X\x8b\x9eM\x83l\x19\xad\x84\x08
 # Configure database
 app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+
 # engine = create_engine(k, pool_size=20, max_overflow=0)
 # SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
@@ -33,7 +34,6 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 # \dt
 # \d users #dor the columns 
 # table users; or select * from users;
-
 
 
 db = SQLAlchemy(app)

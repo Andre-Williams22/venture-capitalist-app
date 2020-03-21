@@ -43,20 +43,42 @@
       </div>
     </div>
   </nav>
-  <!-- Jumbotron -->
-  <header class="masthead text-center text-white">
-    <div class="masthead-content">
-      <div class="container">
-        <h1 class="masthead-heading mb-0">One Page Wonder</h1>
-        <h2 class="masthead-subheading mb-0">Will Rock Your Socks Off</h2>
-        <a href="{{ url_for('signup') }}" class="btn btn-primary btn-xl rounded-pill mt-5">Get Started</a>
-      </div>
-    </div>
-    <div class="bg-circle-1 bg-circle"></div>
-    <div class="bg-circle-2 bg-circle"></div>
-    <div class="bg-circle-3 bg-circle"></div>
-    <div class="bg-circle-4 bg-circle"></div>
-  </header>
+	<!--- Jumbotron Image Slider Start -->
+	<div id="slides" class="carousel slide" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>
+	</ul>
+		<div class="carousel-inner">
+
+			<div class="carousel-item active" style="height: 600px; background-image: url(../static/img/predictor.png); background-size: cover">  
+			
+			<div class="carousel-caption">
+				<h1 class="display-2">Bot Detector</h1>
+				<h3> Keeping You Informed </h3>
+				    <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}">Get Started</a>
+			</div>
+		</div>
+
+		<div class="carousel-item" style="height: 600px; background-image: url(../static/img/brain.png); background-size: cover; background-position: center">
+				<div class="carousel-caption">
+					<h1 class="display-2">Bot Detector</h1>
+					<h3> Keeping You Informed </h3>
+				        <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}">Get Started</a>
+				</div>			
+		</div>
+
+			<div class="carousel-item" style="height: 600px; background-image: url(../static/img/brain2.png); background-size: cover; background-position: center">
+				<div class="carousel-caption">
+					<h1 class="display-2">Bot Detector</h1>
+					<h3> Keeping You Informed </h3>
+				        <a class="btn btn-primary btn-lg" href="{{ url_for('signup') }}">Get Started</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--- Jumbotron Image Slider End -->
 
 
         <!-- Flash messages -->
@@ -73,7 +95,7 @@
         {% endwith %}
 
         {% block content %} 
-<section>
+<section id="info">
     <div class="container">
       <div class="row align-items-center">
         <div class="col-lg-6 order-lg-2">

@@ -1,11 +1,92 @@
-{% extends 'prelogin-layout.html' %}
+<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
-{% block title %} <title>Profit Prediction</title> {% endblock %}
-{% block content %}
+    <head>
 
-  <body>
+        <!-- Bootstrap -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+
+        <!-- Bootstrap core CSS -->
+	    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" />
+
+        <!-- Custom fonts for this template -->
+        <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Lato:100,100i,300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
+
+        <!-- Custom styles for this template 
+        <link href="static/css/one-page-wonder.min.css" rel="stylesheet"> -->
+	    <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='css/one-page-wonder.min.css') }}" />
+    </head>
+  
+  <!-- Navigation -->
+  <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top">
+    <div class="container">
+      <a class="navbar-brand" href="{{ url_for('home') }}">Product</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarResponsive">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('index') }}">Log Out</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+	<!--- Jumbotron Image Slider Start -->
+	<div id="slides" class="carousel slide" data-ride="carousel">
+	<ul class="carousel-indicators">
+		<li data-target="#slides" data-slide-to="0" class="active"></li>
+		<li data-target="#slides" data-slide-to="1"></li>
+		<li data-target="#slides" data-slide-to="2"></li>
+	</ul>
+		<div class="carousel-inner">
+
+			<div class="carousel-item active" style="height: 600px; background-image: url(../static/img/predictor.png); background-size: cover">  
+			
+			<div class="carousel-caption">
+				<h1 class="display-2">Bot Detector</h1>
+				<h3> Keeping You Informed </h3>
+			</div>
+		</div>
+
+		<div class="carousel-item" style="height: 600px; background-image: url(../static/img/brain.png); background-size: cover; background-position: center">
+				<div class="carousel-caption">
+					<h1 class="display-2">Bot Detector</h1>
+					<h3> Keeping You Informed </h3>
+				</div>			
+		</div>
+
+			<div class="carousel-item" style="height: 600px; background-image: url(../static/img/brain2.png); background-size: cover; background-position: center">
+				<div class="carousel-caption">
+					<h1 class="display-2">Bot Detector</h1>
+					<h3> Keeping You Informed </h3>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--- Jumbotron Image Slider End -->
+
+
+
+
+
+
+
+<body class='body'>
+ 
+  <br>
+  <br>
+  <br>
   <center>
-    <h1><div style="text-align:center"><font color="orange">Profit prediction from Startup spendings</font></div></h1>
+    <h1><div style="text-align:center"><font color="orange">Profit prediction for Startup spendings</font></div></h1>
     <hr>
     </br>
     <h2><div style="text-align:center">Enter the values for State, R&D Spend, Administration Spend and Marketing Spend</div></h2>
@@ -48,15 +129,29 @@
                         <small id="MarketSpendHelp" class="form-text text-muted">Enter the dollar amount for Market Spend</small>
                         </div>
                         
-                <input class='btn btn-primary' type='submit' value='Submit'>
+                <input class='btn btn-primary btn-large' type='submit' value='Submit'>
             </form>
 
-</center>
+
 
 
             </form>
           </div>
         </div>
     </div>
+  <!-- Footer -->
+  <footer class="py-5 bg-black">
+    <div class="container">
+      <p class="m-0 text-center text-white small">Copyright &copy; Your Website 2020</p>
+    </div>
+    <!-- /.container -->
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="static/vendor/jquery/jquery.min.js"></script>
+  <script src="static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
   </body>
-{% endblock %}
+
+
+</html>

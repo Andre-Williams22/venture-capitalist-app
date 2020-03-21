@@ -1,6 +1,6 @@
 # [Investment Check]
 
-Author: Andre-Williams
+Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 
 ## Preview
 
@@ -18,5 +18,3 @@ Investment Check is an investment tool for venture capitalist, stock brokers, an
 
 * https://vcprofit-app.herokuapp.com/
 * https://www.linkedin.com/in/andrewilliams22/
-
-Start Bootstrap was created by and is maintained by **[Andre Williams](https://www.linkedin.com/in/andrewilliams22/)**

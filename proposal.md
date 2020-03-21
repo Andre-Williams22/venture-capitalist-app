@@ -9,7 +9,7 @@ Andre Williams
 
 **Project Name:**
 
-Startup ROI Predictor
+Investment Check
 
 
 **Is your project New or Old?**
@@ -92,4 +92,4 @@ A challenge that I anticipate would be setting up a database for authentication 
 **Student Name:**                
 > Andre / 03/17/20
 **Make School Advisor Name**
-> Alan
+> Ala

@@ -1,13 +1,12 @@
-# venture-capitalist-app
-# [Start Bootstrap - One Page Wonder](https://startbootstrap.com/template-overviews/one-page-wonder/)
+# [Venture-Capitalist-app] (https://startbootstrap.com/template-overviews/one-page-wonder/)
 
-[One Page Wonder]() is a basic one page template for [Bootstrap](http://getbootstrap.com/) created by [Andre-Williams].
+
+Author: Andre-Williams
 
 ## Preview
 
-
-
 **[View Live Preview](https://blackrockdigital.github.io/startbootstrap-one-page-wonder/)**
+
 
 ## Usage
 

@@ -13,13 +13,19 @@ from wtform_fields import *
 from models import *
 
 app = Flask(__name__)
+
+
 # to keep clientside sessions secure 
-app.secret_key =os.environ.get('SECRET')
+app.secret_key = 'secret' #os.environ.get('SECRET')
 
 # Configure database
-app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI']='postgres://nutgejunpisnuf:00c0a8255cc7ecbc5ad01197d0933906b367815398be4ce7811ffc46562f79bf@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d9q7ih6h1mkskb' #os.environ.get('DATABASE_URL')
 # To Access Database in terminal:
 # psql (copy postgreslink....)
+# \dt
+# \d users #dor the columns 
+# table users; or select * from users;
+
 
 
 db = SQLAlchemy(app)
@@ -41,6 +47,11 @@ def load_user(id):
 @app.route("/", methods=['GET', 'POST'])
 def index():
 
+    return render_template("index.html")
+
+@app.route('/signup', methods=["GET", "POST"])
+def signup():
+
     reg_form = RegistrationForm()
     # Updated database if validation is successful
     if reg_form.validate_on_submit():
@@ -59,7 +70,7 @@ def index():
 
         return redirect(url_for('login'))
 
-    return render_template("index.html", form=reg_form)
+    return render_template("signup.html", form=reg_form)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -91,6 +102,11 @@ def logout():
     logout_user()
     flash('You have logged out successfully', 'success') # message, category/label
     return redirect(url_for('login'))
+
+@app.errorhandler(404)
+def page_not_found(e):
+    # note that we set the 404 status explicitly
+    return render_template('404.html'), 404
 
 @app.route('/predict', methods=['GET','POST'])
 def predict():

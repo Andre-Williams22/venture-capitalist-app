@@ -7,7 +7,10 @@ from sklearn.externals import joblib
 import pandas as pd 
 import numpy as np 
 
-
+from flask_sqlalchemy import SQLAlchemy 
+from sqlalchemy import create_engine
+from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 from wtform_fields import *
 from models import *
@@ -16,10 +19,16 @@ app = Flask(__name__)
 
 
 # to keep clientside sessions secure 
-app.secret_key = 'secret' #os.environ.get('SECRET')
+app.secret_key =os.environ.get('SECRET')
+app.config['WTF_CSRF_SECRET_KEY'] = "b'f\xfa\x8b{X\x8b\x9eM\x83l\x19\xad\x84\x08\xaa"
 
 # Configure database
-app.config['SQLALCHEMY_DATABASE_URI']='postgres://nutgejunpisnuf:00c0a8255cc7ecbc5ad01197d0933906b367815398be4ce7811ffc46562f79bf@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d9q7ih6h1mkskb' #os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_DATABASE_URI']=os.environ.get('DATABASE_URL')
+app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
+k = 'postgres://nutgejunpisnuf:00c0a8255cc7ecbc5ad01197d0933906b367815398be4ce7811ffc46562f79bf@ec2-35-172-85-250.compute-1.amazonaws.com:5432/d9q7ih6h1mkskb'
+engine = create_engine(k, pool_size=20, max_overflow=0)
+SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
+
 # To Access Database in terminal:
 # psql (copy postgreslink....)
 # \dt
@@ -59,6 +68,7 @@ def signup():
         password = reg_form.password.data 
 
         hashed_password = pbkdf2_sha256.hash(password)
+
 
         # Add user to DB
         user = User(username=username, password=hashed_password)

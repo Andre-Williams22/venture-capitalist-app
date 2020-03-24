@@ -1,4 +1,6 @@
 venv
-___pycache__/
+___pycache__
 flask_session
 node_modules
+.vscode
+.DS_Store

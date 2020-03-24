@@ -66,7 +66,7 @@ A challenge that I anticipate would be setting up a database for authentication 
 
 **Insert wireframe pictures here**
 
-[wireframe](https://github.com/Andre-Williams22/Investment-Check-App/blob/master/static/img/wireframe.jpg)
+(https://github.com/Andre-Williams22/Investment-Check-App/blob/master/static/img/wireframe.jpg)
 
 ## Evaluation
 

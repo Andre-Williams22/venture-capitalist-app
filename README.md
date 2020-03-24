@@ -4,7 +4,7 @@ Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 
 ## Preview
 
-()
+![Investment Site](https://github.com/Andre-Williams22/Investment-Check-App/blob/master/static/img/preview.png)
 
 
 

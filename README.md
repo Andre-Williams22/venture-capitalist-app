@@ -1,12 +1,13 @@
-# [Investment Check]
+# Investment Check
 
 Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 
-## Preview
+
 
 ![Investment Site](https://github.com/Andre-Williams22/Investment-Check-App/blob/master/static/img/preview.png)
 
 
+## Live Preview
 
 **[View Live Preview](https://vcprofit-app.herokuapp.com/)**
 
@@ -14,7 +15,7 @@ Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 
 ## Bugs and Issues
 
-Have a bug or an issue with this template? [Open a new issue](https://github.com/BlackrockDigital/startbootstrap-one-page-wonder/issues) here on GitHub or leave a comment on the [template overview page at Start Bootstrap](http://startbootstrap.com/template-overviews/one-page-wonder/).
+Have a bug or an issue with this template? [Open a new issue](https://github.com/Andre-Williams22/Investment-Check-App/issues) here on GitHub or leave a comment on the [Check Out the Project Proposal](https://github.com/Andre-Williams22/Investment-Check-App/blob/master/proposal.md)
 
 ## About
 

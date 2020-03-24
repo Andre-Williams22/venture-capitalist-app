@@ -19,7 +19,7 @@ New
 Solo
 
 ## Description
-Startup Predictor is a tool for venture capitalist and angel investors to make better decisions when deciding on what startups to invest in based off of the history of successful and unsuccessful companies. 
+Investment Check is a tool for venture capitalist and angel investors to make better decisions when deciding on what startups to invest in based off of the history of successful and unsuccessful companies. 
 
 **Write a paragraph summary of the current status of your project, what you hope to achieve during the intensive, how and why**
 I have not started the project; however, I'm optomistic about what I can achieve within a week. I hope to achieve building a multiple linear regression machine learning model and a simple flask application that loads the model and is available to users.

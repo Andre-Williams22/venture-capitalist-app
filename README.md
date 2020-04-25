@@ -11,6 +11,19 @@ Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 
 **[View Live Preview](https://vcprofit-app.herokuapp.com/)**
 
+## Technologies 
+- Python
+- Flask 
+- Flask WTForms
+- Postgres 
+- Machine Learning (Sklearn)
+- Bootstrap 
+- HTML 5
+- Javascript
+- CSS
+- Heroku
+
+
 
 
 ## Bugs and Issues

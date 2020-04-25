@@ -24,8 +24,6 @@ Author: **[Andre-Williams](https://www.linkedin.com/in/andrewilliams22/)**
 - Heroku
 
 
-
-
 ## Bugs and Issues
 
 Have a bug or an issue with this template? [Open a new issue](https://github.com/Andre-Williams22/Investment-Check-App/issues) here on GitHub or leave a comment on the [Check Out the Project Proposal](https://github.com/Andre-Williams22/Investment-Check-App/blob/master/proposal.md)

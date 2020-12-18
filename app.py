@@ -146,8 +146,5 @@ def predict():
             return "Please Enter Values for the Required fields"
 
     return render_template('predict.html', prediction=model_prediction)
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)

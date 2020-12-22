@@ -3,7 +3,8 @@ from time import localtime, strftime
 from flask import Flask, render_template, url_for, request, redirect, flash
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 # from flask_socketio import SocketIO, join_room, leave_room, send
-from sklearn.externals import joblib
+#from sklearn.externals import joblib
+import joblib 
 import pandas as pd 
 import numpy as np 
 
@@ -16,6 +17,7 @@ from wtform_fields import *
 from models import *
 
 app = Flask(__name__)
+
 
 
 # to keep clientside sessions secure 
@@ -67,7 +69,6 @@ def signup():
         password = reg_form.password.data 
 
         hashed_password = pbkdf2_sha256.hash(password)
-
 
         # Add user to DB
         user = User(username=username, password=hashed_password)
